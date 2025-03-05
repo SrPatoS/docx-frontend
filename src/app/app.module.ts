@@ -11,14 +11,18 @@ import { MatCard, MatCardContent, MatCardHeader, MatCardModule } from '@angular/
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatIcon } from '@angular/material/icon';
-import { HTTP_INTERCEPTORS, provideHttpClient } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { AuthInterceptor } from './pages/auth-page/auth-interceptor';
 import { LocalStorageService } from './services/local-storage.service';
+import { SnackBarService } from './services/snack-bar.service';
+import { ErrorViewComponent } from './components/error-view/error-view.component';
+import { MatProgressBar } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AuthPageComponent
+    AuthPageComponent,
+    ErrorViewComponent
   ],
   imports: [
     BrowserModule,
@@ -31,17 +35,21 @@ import { LocalStorageService } from './services/local-storage.service';
     MatCardModule,
     MatCard,
     ReactiveFormsModule,
-    MatIcon
+    MatIcon,
+    MatProgressBar
   ],
   providers: [
-    LocalStorageService,
-    provideHttpClient(),
-    { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'outline' } },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-    }
+    },
+    LocalStorageService,
+    SnackBarService,
+    provideHttpClient(
+      withInterceptorsFromDi()
+    ),
+    { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'outline' } }
   ],
   bootstrap: [AppComponent]
 })
