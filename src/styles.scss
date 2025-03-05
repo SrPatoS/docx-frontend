@@ -4,10 +4,29 @@
 
 html, body {
   height: 100%;
+  color-scheme: light;
+  @include mat.theme((
+    color: mat.$azure-palette,
+    typography: Roboto,
+    density: 0
+  ));
 }
 
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background: var(--mat-sys-surface);
+  background: var(--mat-sys-primary-container);
+  color: var(--mat-sys-on-primary-container);
+  border: 1px solid var(--mat-sys-outline-variant);
+  font: var(--mat-sys-body-large);
+}
+
+@include mat.core();
+
+mat-nav-list a.mat-list-item,
+mat-action-list a.mat-list-item,
+button.mat-list-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }

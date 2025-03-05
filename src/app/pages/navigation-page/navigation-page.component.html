@@ -1,0 +1,34 @@
+<div class="flex h-full w-full">
+  <mat-toolbar class="example-toolbar">
+    <button mat-icon-button (click)="drawer.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1 class="example-app-name">Docx</h1>
+  </mat-toolbar>
+
+  <div class="content-wrapper">
+    <mat-drawer-container class="flex h-full w-full" [hasBackdrop]="false">
+      <mat-drawer #drawer [mode]="'push'" style="max-width: 270px">
+        <mat-nav-list style="max-width: 90%">
+          <a mat-list-item routerLink="/dashboard">
+            <span>Dashboard</span>
+          </a>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <span>Configurações</span>
+            </mat-expansion-panel-header>
+            <mat-action-list>
+              <a mat-list-item routerLink="settings/tools/companies">
+                <span>Empresas</span>
+              </a>
+            </mat-action-list>
+          </mat-expansion-panel>
+        </mat-nav-list>
+      </mat-drawer>
+
+      <mat-drawer-content>
+        <router-outlet></router-outlet>
+      </mat-drawer-content>
+    </mat-drawer-container>
+  </div>
+</div>

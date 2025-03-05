@@ -1,0 +1,25 @@
+.example-container {
+  margin: 12px;
+}
+
+.example-toolbar {
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+  top: 0;
+  left: 0;
+}
+
+mat-nav-list a.mat-list-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.content-wrapper {
+  padding-top: 64px;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+

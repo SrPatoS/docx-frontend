@@ -17,12 +17,19 @@ import { LocalStorageService } from './services/local-storage.service';
 import { SnackBarService } from './services/snack-bar.service';
 import { ErrorViewComponent } from './components/error-view/error-view.component';
 import { MatProgressBar } from '@angular/material/progress-bar';
+import { CompanyToolPageComponent } from './pages/company-tool-page/company-tool-page.component';
+import { PaginateListComponent } from './components/paginate-list/paginate-list.component';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatCell, MatColumnDef, MatHeaderCell, MatHeaderCellDef, MatTable } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthPageComponent,
-    ErrorViewComponent
+    ErrorViewComponent,
+    CompanyToolPageComponent,
+    PaginateListComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +43,14 @@ import { MatProgressBar } from '@angular/material/progress-bar';
     MatCard,
     ReactiveFormsModule,
     MatIcon,
-    MatProgressBar
+    MatProgressBar,
+    MatPaginator,
+    MatHeaderCell,
+    MatHeaderCellDef,
+    MatTable,
+    MatCell,
+    MatColumnDef,
+    MatSort
   ],
   providers: [
     {
