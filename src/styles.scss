@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @use "tailwindcss" as *;
+@use '@angular/material' as mat;
 
 html, body {
   height: 100%;
@@ -8,4 +9,5 @@ html, body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: var(--mat-sys-surface);
 }
