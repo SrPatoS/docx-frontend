@@ -44,7 +44,11 @@ export class AuthPageComponent {
     this.http.post('/auth', this.form.value).subscribe((res: any) => {
       this.loading = false;
       this.localStorageService.save('authToken', res.data.token);
-      this.router.navigate(['/']);
+      this.http.get('/user').subscribe((response: any) => {
+        const user = JSON.stringify(response.data);
+        this.localStorageService.save('user', user);
+        this.router.navigate(['/']);
+      });
     }, (err) => {
       if (err.error.message) {
         this.error = err.error.message;

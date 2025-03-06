@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
@@ -8,6 +8,10 @@ import { MatIcon } from '@angular/material/icon';
 import { MatActionList, MatListItem, MatNavList } from '@angular/material/list';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { MatExpansionPanel, MatExpansionPanelHeader } from '@angular/material/expansion';
+import { HttpClient } from '@angular/common/http';
+import { LocalStorageService } from '../../services/local-storage.service';
+import { environment } from '../../../environments/environment'; 
+import { IUser } from '../../interfaces/user.interface';
 
 @Component({
   selector: 'app-navigation-page',
@@ -15,6 +19,19 @@ import { MatExpansionPanel, MatExpansionPanelHeader } from '@angular/material/ex
   styleUrl: './navigation-page.component.scss',
   imports: [MatSidenavModule, MatFormFieldModule, MatSelectModule, MatButtonModule, MatToolbar, MatIcon, MatNavList, MatListItem, RouterLink, MatExpansionPanelHeader, MatExpansionPanel, MatActionList, RouterOutlet]
 })
-export class NavigationPageComponent {
+export class NavigationPageComponent implements OnInit {
+  user: IUser | null = null;
 
+  constructor(
+    private localStorageService: LocalStorageService,
+  ) {}
+
+  ngOnInit(): void {
+    this.loadUser();
+  }
+
+  loadUser() {
+    const userStorange = this.localStorageService.get('user');
+    this.user = userStorange ? JSON.parse(userStorange) : null;
+  }
 }

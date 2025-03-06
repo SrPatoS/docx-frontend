@@ -1,34 +1,37 @@
-<div class="flex h-full w-full">
-  <mat-toolbar class="example-toolbar">
-    <button mat-icon-button (click)="drawer.toggle()">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <h1 class="example-app-name">Docx</h1>
+<div class="flex flex-col h-full w-full">
+  <mat-toolbar class="flex justify-between items-center w-full px-4 py-2 bg-white shadow border-b border-gray-200">
+    <div class="flex items-center gap-2">
+      <button mat-icon-button (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <h1 class="text-xl font-semibold">Docx</h1>
+    </div>
+    <img
+      [src]="user?.avatar"
+      alt="logo"
+      class="w-10 h-10 rounded-full object-cover"
+    />
   </mat-toolbar>
-
-  <div class="content-wrapper">
-    <mat-drawer-container class="flex h-full w-full" [hasBackdrop]="false">
-      <mat-drawer #drawer [mode]="'push'" style="max-width: 270px">
-        <mat-nav-list style="max-width: 90%">
-          <a mat-list-item routerLink="/dashboard">
-            <span>Dashboard</span>
-          </a>
-          <mat-expansion-panel>
-            <mat-expansion-panel-header>
-              <span>Configurações</span>
-            </mat-expansion-panel-header>
-            <mat-action-list>
-              <a mat-list-item routerLink="settings/tools/companies">
-                <span>Empresas</span>
-              </a>
-            </mat-action-list>
-          </mat-expansion-panel>
-        </mat-nav-list>
-      </mat-drawer>
-
-      <mat-drawer-content>
-        <router-outlet></router-outlet>
-      </mat-drawer-content>
-    </mat-drawer-container>
-  </div>
+  <mat-drawer-container class="flex-1 h-full w-full" [hasBackdrop]="false">
+    <mat-drawer #drawer [mode]="'push'" class="max-w-[270px]">
+      <mat-nav-list class="max-w-[90%]">
+        <a mat-list-item routerLink="/dashboard">
+          <span>Dashboard</span>
+        </a>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <span>Configurações</span>
+          </mat-expansion-panel-header>
+          <mat-action-list>
+            <a mat-list-item routerLink="settings/tools/companies">
+              <span>Empresas</span>
+            </a>
+          </mat-action-list>
+        </mat-expansion-panel>
+      </mat-nav-list>
+    </mat-drawer>
+    <mat-drawer-content>
+      <router-outlet></router-outlet>
+    </mat-drawer-content>
+  </mat-drawer-container>
 </div>
