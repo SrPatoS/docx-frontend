@@ -27,9 +27,9 @@
             <mat-expansion-panel-header>
               <span class="pl-4">Dashboard</span>
             </mat-expansion-panel-header>
-            <mat-action-list>
-              <a mat-list-item routerLink="settings/tools/companies">
-                <span>Empresas</span>
+            <mat-action-list *ngFor="let item of drawerArray">
+              <a mat-list-item routerLink={{item.path}}>
+                <span>{{ item.name }}</span>
               </a>
             </mat-action-list>
           </mat-expansion-panel>

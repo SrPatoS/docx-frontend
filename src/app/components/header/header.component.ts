@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, inject, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { LocalStorageService } from '../../services/local-storage.service';
 import { IUser } from '../../interfaces/user.interface';
@@ -14,6 +14,11 @@ import { MatActionList } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { RouterLink, RouterOutlet } from '@angular/router';
+
+interface IDrawerArray {
+  name: string;
+  path: string;
+}
 
 @Component({
   selector: 'app-header',
@@ -40,15 +45,22 @@ import { RouterLink, RouterOutlet } from '@angular/router';
     RouterOutlet
   ]
 })
-export class HeaderComponent implements OnInit {
-  user: IUser | null = null;
 
+export class HeaderComponent implements OnInit {
+
+  drawerArray: IDrawerArray[] = [
+    { name: 'Usuários', path: '/user' },
+    { name: 'Empresas', path: '' }
+  ]
+
+  user: IUser | null = null;
+  
   @ViewChild(MatDrawer) drawer: MatDrawer | undefined;
 
   constructor(
-    private localStorageService: LocalStorageService,
-    private router: Router
-  ) { }
+    private router: Router,
+    private localStorageService: LocalStorageService
+  ){}
 
   ngOnInit(): void {
     this.loadUser();

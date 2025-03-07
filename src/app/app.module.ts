@@ -22,7 +22,7 @@ import { PaginateListComponent } from './components/paginate-list/paginate-list.
 import { MatPaginator } from '@angular/material/paginator';
 import { MatCell, MatColumnDef, MatHeaderCell, MatHeaderCellDef, MatTable } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
-import { HeaderComponent } from './components/header/header.component';
+import { UserComponent } from './pages/user/user.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +33,7 @@ import { HeaderComponent } from './components/header/header.component';
     PaginateListComponent,
   ],
   imports: [
+    UserComponent,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
