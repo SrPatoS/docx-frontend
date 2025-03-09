@@ -3,7 +3,7 @@
 <mat-sidenav-container class="example-container">
   <mat-sidenav #sidenav mode="side" opened class="example-sidenav">
     <mat-nav-list>
-      <mat-list-item *ngFor="let item of menuItems" (click)="onMenuClick(item)">
+      <mat-list-item *ngFor="let item of menuItems" (click)="onMenuClick(item)" class="item">
         <div class="custom-list-item">
           <mat-icon class="menu-icon">{{ item.icon }}</mat-icon>
           <span class="menu-label">{{ item.label }}</span>
