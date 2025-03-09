@@ -11,6 +11,7 @@ import { MatList, MatListItem, MatNavList } from '@angular/material/list';
 import { MatIcon } from '@angular/material/icon';
 import { Router, RouterOutlet } from '@angular/router';
 import { NgForOf } from '@angular/common';
+import { MatRipple } from '@angular/material/core';
 
 @Component({
   selector: 'app-navigation-page',
@@ -30,7 +31,8 @@ import { NgForOf } from '@angular/common';
     MatIcon,
     MatNavList,
     RouterOutlet,
-    NgForOf
+    NgForOf,
+    MatRipple
   ]
 })
 export class NavigationPageComponent {
