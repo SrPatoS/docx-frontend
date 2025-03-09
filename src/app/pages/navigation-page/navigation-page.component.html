@@ -1,52 +1,22 @@
-<app-header />
+<app-header></app-header>
 
-<!-- <div class="flex flex-col h-full w-full">
-  <mat-toolbar class="flex justify-between items-center w-full px-4 py-2 bg-white shadow border-b border-gray-200">
-    <div class="flex items-center gap-2">
-      <button mat-icon-button (click)="drawer.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <h1 class="text-xl font-semibold">Docx</h1>
-    </div>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav mode="side" opened class="example-sidenav">
+    <mat-nav-list>
+      <mat-list-item *ngFor="let item of menuItems" (click)="onMenuClick(item)">
+        <div class="custom-list-item">
+          <mat-icon class="menu-icon">{{ item.icon }}</mat-icon>
+          <span class="menu-label">{{ item.label }}</span>
+        </div>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
 
-    <button mat-button [matMenuTriggerFor]="userMenu">
-      <img
-        [src]="user?.avatar"
-        alt="avatar"
-        class="w-10 h-10 rounded-full object-cover border"
-      />
-    </button>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
 
-    <mat-menu #userMenu="matMenu">
-      <button mat-menu-item (click)="logout()">
-        <mat-icon>logout</mat-icon>
-        <span>Sair</span>
-      </button>
-    </mat-menu>
-
-  </mat-toolbar>
-
-  <mat-drawer-container class="flex-1 h-full w-full" [hasBackdrop]="false">
-    <mat-drawer #drawer [mode]="'push'" class="max-w-[270px]">
-      <mat-nav-list class="max-w-[90%]">
-        <a mat-list-item routerLink="/dashboard">
-          <span>Dashboard</span>
-        </a>
-        <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            <span>Configurações</span>
-          </mat-expansion-panel-header>
-          <mat-action-list>
-            <a mat-list-item routerLink="settings/tools/companies">
-              <span>Empresas</span>
-            </a>
-          </mat-action-list>
-        </mat-expansion-panel>
-      </mat-nav-list>
-    </mat-drawer>
-
-    <mat-drawer-content>
-      <router-outlet></router-outlet>
-    </mat-drawer-content>
-  </mat-drawer-container>
-</div> -->
+<mat-toolbar class="example-footer">
+  <span>Footer</span>
+</mat-toolbar>

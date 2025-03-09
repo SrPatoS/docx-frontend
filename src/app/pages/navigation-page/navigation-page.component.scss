@@ -1,25 +1,40 @@
 .example-container {
-  margin: 12px;
-}
-
-.example-toolbar {
-  position: fixed;
-  width: 100%;
-  z-index: 2;
-  top: 0;
+  position: absolute;
+  top: 60px;
+  bottom: 60px;
   left: 0;
+  right: 0;
 }
 
-mat-nav-list a.mat-list-item {
+.example-sidenav {
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+  width: 200px;
+  border-width: 1px;
+  border-color: #efefef;
 }
 
-.content-wrapper {
-  padding-top: 64px;
-  width: 100%;
-  height: 100vh;
+.example-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-width: 1px;
+  border-color: #efefef;
+  z-index: 10;
+}
+
+.custom-list-item {
   display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
+.menu-icon {
+  font-size: 20px;
+}
+
+.menu-label {
+
+}

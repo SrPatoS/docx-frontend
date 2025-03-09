@@ -25,10 +25,9 @@ const routes: Routes = [
     component: AuthPageComponent
   },
   {
-    path:'user',
+    path: 'user',
     component: UserComponent
   }
-
 ];
 
 @NgModule({
